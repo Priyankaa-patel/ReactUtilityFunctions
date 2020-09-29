@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './App.scss';
-import Logo from './component-library/components/icon/index'
 import Button from './component-library/components/button';
 import Accordian from './component-library/components/accordian';
 import Tooltip from './component-library/components/tooltip';
+import Navbar from './component-library/components/navbar';
+import ReportsScores from './component-library/components/ReportsScores';
+import IndentityTheftProtection from './component-library/components/IndentityTheftProtection';
+import CreditCardsLoans from './component-library/components/CreditCardsLoans';
+import CreditSupport from './component-library/components/CreditSupport';
+import Education from './component-library/components/Education';
+
 
 class App extends Component {
 
@@ -11,8 +19,17 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path='/reports_scores' component={ReportsScores} />
+            <Route path='/indentity_theft_protection' component={IndentityTheftProtection} />
+            <Route path='/credit_cards_loans' component={CreditCardsLoans} />
+            <Route path='/credit_support' component={CreditSupport} />
+            <Route path='/education' component={Education} />
+          </Switch>
+        </Router>
 
-        <Logo />
         Welcome to Credit Tracking
         <Button secondary >Submit</Button>
         <Button >Reset</Button>
@@ -31,7 +48,6 @@ class App extends Component {
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' />
 
-        <Tooltip content='Tooltip dropdown'>My Tooltip</Tooltip>
 
       </div>
     )
